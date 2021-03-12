@@ -25,7 +25,7 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = "Asia/Seoul"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ko-kr"
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -42,9 +42,14 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///teablog")
+    "default": {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'teablog_database',
+        'USER': 'myuser',
+        'PASSWORD': 'rkwmdk!ahffk~'
+    }
 }
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
 
 # URLS
 # ------------------------------------------------------------------------------
