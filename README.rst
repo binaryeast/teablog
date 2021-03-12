@@ -3,6 +3,8 @@ Teablog
 
 Teablog is simple-short blog service.
 
+유어슈 백엔드 지원 과제입니다. 잘 부탁드립니다.
+
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter
      :target: https://github.com/pydanny/cookiecutter-django/
      :alt: Built with Cookiecutter Django
