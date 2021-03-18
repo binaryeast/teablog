@@ -17,6 +17,9 @@ ALLOWED_HOSTS = ["13.125.133.33", "teablog.tk"]
 
 
 # Application definition
+LOCAL_APPS = [
+    "blog.apps.BlogConfig",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -25,8 +28,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "blog.apps.BlogConfig",
+    "rest_framework",
+    "rest_framework.authtoken",
+    "corsheaders",
+    "django_extensions",
 ]
+
+INSTALLED_APPS += LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
