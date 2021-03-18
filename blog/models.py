@@ -43,7 +43,7 @@ class Comment(TimeStampModel):
 
         verbose_name_plural = verbose_name
 
-    post = models.ForeignKey(Post, verbose_name="달린 포스트", on_delete=models.CASCADE)
+    post = models.ForeignKey(TeaPost, verbose_name="달린 포스트", on_delete=models.CASCADE)
     writer = models.ForeignKey(User, verbose_name="댓쓴이", null=True, on_delete=models.SET_NULL)
     comment_body = models.TextField("댓글") 
 
