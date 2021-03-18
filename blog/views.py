@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions, renderers, viewsets
+from rest_framework.decorators import action
 
 from .models import TeaBlog, TeaPost, Comment
 from .serializers import UserSerializer, TeaBlogSerializer, TeaPostSerializer, CommentSerializer
@@ -16,17 +17,12 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
 
 
-class BlogList(APIView):
-    def get(self, request, format=None):
-        blogs = TeaBlog.objects.all()
-        serializer = TeaBlogSerializer(blogs, many=True)
-        return Response(serializer.data)
+class BlogViewSet(viewsets.ModelViewSet):
+        queryset = TeaBlog.objects.all()
+        serializer_class = TeaBlogSerializer
+        permission_classes = (permissions.IsAuthenticatedOrReadOnly)
 
-    def post(self, request, format=None):
-        serializer = TeaBlogSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
