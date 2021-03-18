@@ -13,7 +13,7 @@ SECRET_KEY = 'bau7k))tp=fuu8#^3kih_f2(qailb=lm^ydndzersi15r$+i_1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["13.125.133.33", "teablog.tk"]
+ALLOWED_HOSTS = ["13.125.133.33", "teablog.tk", "back.teablog.tk"]
 
 
 # Application definition
