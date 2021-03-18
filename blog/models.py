@@ -26,11 +26,17 @@ class TeaBlog(models.Model):
             default = open_status[0][0]
             )
 
+    def __str__(self):
+        return self.title
+
 
 class TeaPost(TimeStampModel):
     posted_blog = models.ForeignKey(TeaBlog, verbose_name="포스트된 블로그", on_delete=models.CASCADE)
     post_title = models.CharField("포스트 제목", max_length=500)
     post_body = models.TextField()
+
+    def __str__(self):
+        return self.post_title
 
 class Comment(TimeStampModel):
     """
@@ -48,4 +54,4 @@ class Comment(TimeStampModel):
     comment_body = models.TextField("댓글") 
 
     def __str__(self):
-        return self.post_name
+        return str(self.post) + str(self.comment_body)
