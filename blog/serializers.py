@@ -20,7 +20,7 @@ class TeaBlogSerializer(serializers.ModelSerializer):
         depth = 1
 
 
-class TeaPostSerializer(serializers.HyperlinkedModelSerializer):
+class TeaPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = TeaPost
         fields = ["posted_blog", "post_title", "post_body"]
