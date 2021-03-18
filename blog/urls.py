@@ -8,6 +8,8 @@ router = DefaultRouter()
 router.register(r'blogs', BlogViewSet, basename="blog")
 router.register(r'users', UserViewSet, basename="User")
 
+
+app_name = "blogs"
 # The API URLs are now determined automatically by the router.
 # Additionally, we include the login URLs for the browsable API.
 urlpatterns = [
