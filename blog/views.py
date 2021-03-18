@@ -7,6 +7,14 @@ from .models import TeaBlog, TeaPost, Comment
 from .serializers import UserSerializer, TeaBlogSerializer, TeaPostSerializer, CommentSerializer
 
 
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    This viewset automatically provides `list` and `detail` actions.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
 class BlogList(APIView):
     def get(self, request, format=None):
         blogs = TeaBlog.objects.all()
@@ -19,3 +27,5 @@ class BlogList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
