@@ -18,9 +18,9 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class BlogViewSet(viewsets.ModelViewSet):
-        queryset = TeaBlog.objects.all()
-        serializer_class = TeaBlogSerializer
-        permission_classes = (permissions.IsAuthenticatedOrReadOnly)
+    queryset = TeaBlog.objects.all()
+    serializer_class = TeaBlogSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
