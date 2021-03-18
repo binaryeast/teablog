@@ -3,6 +3,8 @@ from rest_framework.routers import DefaultRouter
 
 from .views import UserViewSet, BlogViewSet
 
+
+app_name = blog
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'blogs', BlogViewSet, basename="blog")

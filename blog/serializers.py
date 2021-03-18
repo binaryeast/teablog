@@ -9,6 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['url', 'username', 'email', 'groups']
+        extra_kwargs = {'url': {'view_name': 'blog:user-detail'}}
 
 
 # blogs
