@@ -32,7 +32,7 @@ class TeaPost(TimeStampModel):
     post_title = models.CharField("포스트 제목", max_length=500)
     post_body = models.TextField()
 
-class Comment(TimeStampedModel):
+class Comment(TimeStampModel):
     """
     Blog post's comment.
 
