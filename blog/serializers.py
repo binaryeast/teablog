@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
+    blog = serializers.HyperlinkedRelatedField(many=True, view_name='blog:blog-detail', read_only=True)
     class Meta:
         model = User
         fields = ['url', 'username', 'email', 'groups']

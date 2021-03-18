@@ -17,7 +17,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
 
 
-class BlogViewSet(viewsets.ModelViewSet):
+class BlogViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = TeaBlog.objects.all()
     serializer_class = TeaBlogSerializer
     permission_classes = (permissions.AllowAny,)
